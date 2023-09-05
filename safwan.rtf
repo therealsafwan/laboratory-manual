@@ -1,0 +1,786 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\b\f0\fs28\lang9 1.Calculation of Test Average\par
+\b0 Write a python program to find the best of two test average marks out of three test\rquote s marks accepted from the user.\fs32\par
+\fs22 m1 = int(input("Enter marks for test1 : "))\par
+m2 = int(input("Enter marks for test2 : "))\par
+m3 = int(input("Enter marks for test3 : "))\par
+\par
+if m1 <= m2 and m1 <= m3:\par
+    avgMarks = (m2+m3)/2\par
+elif m2 <= m1 and m2 <= m3:\par
+    avgMarks = (m1+m3)/2\par
+elif m3 <= m1 and m2 <= m2:\par
+    avgMarks = (m1+m2)/2    \par
+    \par
+print("Average of best two test marks  out of three test\rquote s marks is", avgMarks);\par
+\b\fs28 Output\b0\fs22\par
+Enter marks for test1 : 45\par
+Enter marks for test2 : 39\par
+Enter marks for test3 : 48\par
+Average of best two test marks  out of three test\rquote s marks is 46.5\par
+\par
+\fs20\par
+\b\fs28 1b.Palindrome Check & Digit Occurrence Count\b0\fs20\par
+\fs22 Develop a Python program to check whether a given number is palindrome or not and also count the number of occurrences of each digit in the input number.\par
+val = int(input("Enter a value : "))\par
+str_val = str(val)\par
+if str_val == str_val[::-1]:\par
+    print("Palindrome")\par
+else:\par
+    print("Not Palindrome")\par
+    \par
+for i in range(10):\par
+    if str_val.count(str(i)) > 0:\par
+        print(str(i),"appears", str_val.count(str(i)), "times");\par
+\b\fs28 Output\b0\fs22\par
+Enter a value : 1234234\par
+Not Palindrome\par
+1 appears 1 times\par
+2 appears 2 times\par
+3 appears 2 times\par
+4 appears 2 times\par
+\par
+\b\fs28 2.Fibonacci Sequence\b0\fs22\par
+Defined as a function F as Fn = Fn-1 + Fn-2. Write a Python program which accepts a value for N (where N >0) as input and pass this value to the function. Display suitable error message if the condition for input value is not followed.\par
+def fn(n):\par
+    if n == 1:\par
+        return 0\par
+    elif n == 2:\par
+        return 1\par
+    else:\par
+        return fn(n-1) + fn(n-2)\par
+num = int(input("Enter a number : "))\par
+if num > 0:\par
+    print("fn(", num, ") = ",fn(num) , sep ="")\par
+else:\par
+    print("Error in input")\par
+\b\fs28 Output\b0\fs22\par
+Enter a number : 5\par
+fn(5) = 3\par
+Enter a number : -1\par
+Error in input\par
+\b\fs28\par
+2b.Binary to Decimal & Octal to Hexadecimal Conversion\par
+\b0\fs22\par
+Develop a python program to convert binary to decimal, octal to hexadecimal using functions.\par
+def bin2Dec(val):\par
+    rev=val[::-1]\par
+    dec = 0\par
+    i = 0\par
+    for dig in rev:\par
+        dec += int(dig) * 2**i\par
+        i += 1\par
+         return dec\par
+def oct2Hex(val):\par
+    rev=val[::-1]\par
+    dec = 0\par
+    i = 0\par
+    for dig in rev:\par
+        dec += int(dig) * 8**i\par
+        i += 1\par
+    list=[]\par
+    while dec != 0:\par
+        list.append(dec%16)\par
+        dec = dec // 16\par
+        \par
+    nl=[]\par
+    for elem in list[::-1]:\par
+        if elem <= 9:\par
+            nl.append(str(elem))\par
+        else:\par
+            nl.append(chr(ord('A') + (elem -10)))\par
+    hex = "".join(nl)\par
+    \par
+    return hex\par
+\par
+num1 = input("Enter a binary number : ")    \par
+print(bin2Dec(num1))\par
+num2 = input("Enter a octal number : ")\par
+print(oct2Hex(num2))\par
+\b\fs28 Output\b0\fs22\par
+Enter a binary number : 10111001\par
+185\par
+Enter a octal number : 675\par
+1BD\par
+\par
+\b\fs28 3.Sentence Statistics\b0\fs22\par
+Write a Python program that accepts a sentence and find the number of words, digits, uppercase letters and lowercase letters.\par
+\par
+sentence = input("Enter a sentence : ")\par
+wordList = sentence.split(" ")\par
+print("This sentence has", len(wordList), "words")\par
+digCnt = upCnt = loCnt = 0\par
+for ch in sentence:\par
+    if '0' <= ch <= '9':\par
+        digCnt += 1\par
+    elif 'A' <= ch <= 'Z':\par
+        upCnt += 1\par
+    elif 'a' <= ch <= 'z':\par
+        loCnt += 1\par
+print("This sentence has", digCnt, "digits", upCnt, "upper case letters", loCnt, "lower case letters")\par
+\b\fs28 Output\b0\fs22\par
+Enter a sentence : Rama went to Devaraja market to pick 2 kgs of vegetable\par
+This sentence has 11 words\par
+This sentence has 1 digits 2 upper case letters 42 lower case letters\par
+\b\fs28 3b.String Similarity\b0\fs22\par
+Write a Python program to find the string similarity between two given strings.\par
+\par
+str1 = input("Enter String 1 \\n")\par
+str2 = input("Enter String 2 \\n")\par
+if len(str2) < len(str1):\par
+    short = len(str2)\par
+    long = len(str1)\par
+else:\par
+    short = len(str1)\par
+    long = len(str2)\par
+ matchCnt = 0\par
+for i in range(short):\par
+    if str1[i] == str2[i]:\par
+        matchCnt += 1\par
+\par
+print("Similarity between two said strings:")\par
+print(matchCnt/long)\par
+\b\fs28 Output\b0\fs22\par
+Enter String 1 \par
+Python Exercises\par
+Enter String 2 \par
+Python Exercises\par
+Similarity between two said strings:\par
+1.0\par
+Enter String 1 \par
+Python Exercises\par
+Enter String 2 \par
+Python Exercise\par
+Similarity between two said strings:\par
+0.9375\par
+\par
+\b\fs28 4.Insertion Sort & Merge Sort on lists\b0\fs22\par
+Write a python program to implement insertion sort and merge sort using lists.\par
+\par
+import random\par
+\par
+def merge_sort(lst):\par
+    if len(lst) > 1:\par
+        mid = len(lst) // 2\par
+        left_half = lst[:mid]\par
+        right_half = lst[mid:]\par
+\par
+        merge_sort(left_half)\par
+        merge_sort(right_half)\par
+\par
+        i = j = k = 0\par
+\par
+        while i < len(left_half) and j < len(right_half):\par
+            if left_half[i] < right_half[j]:\par
+                lst[k] = left_half[i]\par
+                i += 1\par
+            else:\par
+                lst[k] = right_half[j]\par
+                j += 1\par
+            k += 1\par
+\par
+        while i < len(left_half):\par
+            lst[k] = left_half[i]\par
+            i += 1\par
+            k += 1\par
+\par
+        while j < len(right_half):\par
+            lst[k] = right_half[j]\par
+            j += 1\par
+            k += 1\par
+\par
+    return lst\par
+\par
+\par
+def insertion_sort(arr):\par
+    for i in range(1, len(arr)):\par
+        key = arr[i]\par
+        j = i - 1\par
+        while j >= 0 and key < arr[j]:\par
+            arr[j + 1] = arr[j]\par
+            j -= 1\par
+        arr[j + 1] = key\par
+\par
+my_list = []\par
+\par
+for i in range(10):\par
+    my_list.append(random.randint(0, 999))\par
+\par
+print("\\nUnsorted List")\par
+print(my_list)\par
+print("Sorting using Insertion Sort")\par
+insertion_sort(my_list)\par
+print(my_list)\par
+\par
+\par
+my_list = []\par
+\par
+for i in range(10):\par
+    my_list.append(random.randint(0, 999))\par
+\par
+print("\\nUnsorted List")\par
+print(my_list)\par
+print("Sorting using Merge Sort")\par
+merge_sort(my_list)\par
+print(my_list)\par
+\b\fs28 Output\b0\fs22\par
+Unsorted List\par
+[932, 111, 226, 685, 543, 589, 918, 539, 294, 717]\par
+Sorting using Insertion Sort\par
+[111, 226, 294, 539, 543, 589, 685, 717, 918, 932]\par
+\par
+Unsorted List\par
+[613, 176, 828, 265, 65, 326, 359, 919, 514, 868]\par
+Sorting using Merge Sort\par
+[65, 176, 265, 326, 359, 514, 613, 828, 868, 919]\par
+\b\fs28 b.Roman to Integer Conversion\b0\fs22\par
+Develop a Python program to check whether a given number is palindrome or not and also count the number of occurrences of each digit in the input number.\par
+\par
+def roman2Dec(romStr):\par
+    roman_dict =\{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000\}\par
+    romanBack = list(romStr)[::-1]\par
+    value = 0\par
+    rightVal = roman_dict[romanBack[0]]  \par
+    for numeral in romanBack:\par
+        leftVal = roman_dict[numeral]\par
+               if leftVal < rightVal:\par
+           value -= leftVal\par
+        else:\par
+            value += leftVal\par
+        rightVal = leftVal\par
+    return value\par
+\par
+\par
+romanStr = input("Enter a Roman Number : ")\par
+print(roman2Dec(romanStr))\par
+\b\fs28 Output\b0\fs22\par
+Enter a Roman Number : XVII\par
+17\par
+\par
+Enter a Roman Number : MLXVI\par
+1066\par
+\par
+\b\fs28 5.Check Phone Number\b0\fs22\par
+Write a function called isphonenumber () to recognize a pattern 415-555-4242 without using regular expression and also write the code to recognize the same pattern using regular expression.\par
+\par
+def isphonenumber(numStr):\par
+    if len(numStr) != 12:\par
+        return False\par
+    for i in range(len(numStr)):\par
+        if i==3 or i==7:\par
+            if numStr[i] != "-":\par
+                return False\par
+        else:\par
+            if numStr[i].isdigit() == False:\par
+                return False\par
+    return True\par
+\par
+\par
+def chkphonenumber(numStr):\par
+    ph_no_pattern = re.compile(r'^\\d\{3\}-\\d\{3\}-\\d\{4\}$')\par
+    if ph_no_pattern.match(numStr):\par
+        return True\par
+    else:\par
+        return False\par
+\par
+ph_num = input("Enter a phone number : ")\par
+print("Without using Regular Expression")\par
+if isphonenumber(ph_num):\par
+    print("Valid phone number")\par
+else:\par
+    print("Invalid phone number")\par
+\par
+print("Using Regular Expression")\par
+if chkphonenumber(ph_num):\par
+    print("Valid phone number")\par
+else:\par
+    print("Invalid phone number")\par
+\b\fs28 Output\b0\fs22\par
+Enter a phone number : 444-654-5656\par
+Without using Regular Expression\par
+Valid phone number\par
+Using Regular Expression\par
+Valid phone number\par
+Enter a phone number : 45A4-444-878\par
+Without using Regular Expression\par
+Invalid phone number\par
+Using Regular Expression\par
+Invalid phone number\par
+\b\fs28 b.Search Phone Number & Email\par
+\b0\fs22 Develop a python program that could search the text in a file for phone numbers (+919900889977) and email addresses (sample@gmail.com)\par
+\par
+\par
+import re\par
+\par
+phone_regex = re.compile(r'\\+\\d\{12\}')\par
+email_regex = re.compile(r'[A-Za-z0-9._]+@[A-Za-z0-9]+\\.[A-Z|a-z]\{2,\}')\par
+with open('example.txt', 'r') as f:\par
+        for line in f:\par
+             matches = phone_regex.findall(line)\par
+                for match in matches:\par
+            print(match)\par
+\par
+        matches = email_regex.findall(line)\par
+        \par
+        for match in matches:\par
+            print(match)            \par
+\b\fs28 Output\b0\fs22\par
++918151894220\par
++829392938876\par
++918768456234\par
+prakash81.82@gmail.in\par
+\par
+\b\fs28 6.File Operations\b0\fs22\par
+Write a python program to accept a file name from the user and perform the following operations\par
+\par
+\par
+import os.path\par
+import sys\par
+\par
+fname = input("Enter the filename : ")      \par
+\par
+if not os.path.isfile(fname):\par
+    print("File", fname, "doesn't exists")\par
+    sys.exit(0)\par
+\par
+infile = open(fname, "r")\par
+\par
+lineList = infile.readlines()\par
+\par
+for i in range(20):\par
+    print(i+1, ":", lineList[i])\par
+    \par
+word = input("Enter a word : ")\par
+cnt = 0\par
+for line in lineList:\par
+    cnt += line.count(word)\par
+\par
+print("The word", word, "appears", cnt, "times in the file")\par
+\b\fs28 Output\b0\fs22\par
+Enter the filename : example.txt\par
+1 : this is phone number +918151894220\par
+2 : no phone number here\par
+3 : here we have one +829392938876\par
+4 : we have an email prakash81.82@gmail.in and a number +918768456234 \par
+5 : nothing of that sort here\par
+6 : Better hope the life-inspector doesn't come around while you have your\par
+7 : life in such a mess.\par
+8 : You can create your own opportunities this week.  Blackmail a senior executive.\par
+9 : Be different: conform.\par
+10 : Be cheerful while you are alive.\par
+11 : \tab\tab -- Phathotep, 24th Century B.C.\par
+12 : Q:\tab How many journalists does it take to screw in a light bulb?\par
+13 : A:\tab Three.  One to report it as an inspired government program to bring\par
+14 : \tab light to the people, one to report it as a diabolical government plot\par
+15 : \tab to deprive the poor of darkness, and one to win a Pulitzer prize for\par
+16 : \tab reporting that Electric Company hired a light bulb-assassin to break\par
+17 : \tab the bulb in the first place.\par
+18 : Q:\tab Why did the astrophysicist order three hamburgers?\par
+19 : A:\tab Because he was hungry.\par
+20 : Q:\tab Why haven't you graduated yet?\par
+Enter a word : the\par
+The word the appears 7 times in the file\par
+\b\fs28 b.Zip operation on a folder\b0\fs22\par
+Develop a program to backing Up a given Folder (Folder in a current working directory) into a ZIP File by using relevant modules and suitable methods.\par
+\par
+\par
+import os\par
+import sys\par
+import pathlib\par
+import zipfile\par
+\par
+dirName = input("Enter Directory name that you want to backup : ")\par
+\par
+if not os.path.isdir(dirName):\par
+    print("Directory", dirName, "doesn't exists")\par
+    sys.exit(0)\par
+    \par
+curDirectory = pathlib.Path(dirName)\par
+    \par
+with zipfile.ZipFile("myZip.zip", mode="w") as archive:\par
+    for file_path in curDirectory.rglob("*"):\par
+        archive.write(file_path, arcname=file_path.relative_to(curDirectory))\par
+    \par
+if os.path.isfile("myZip.zip"):\par
+    print("Archive", "myZip.zip", "created successfully")\par
+else:\par
+    print("Error in creating zip archive")\par
+\b\fs28 Output\b0\fs22\par
+Enter Directory name that you want to backup : zipDemo\par
+Archive myZip.zip created successfully\par
+\par
+\b\fs28 7.Inheritance\b0\fs22\par
+By using the concept of inheritance write a python program to find the area of triangle, circle and rectangle.\par
+\par
+import math\par
+\par
+class Shape:\par
+    def __init__(self):\par
+        self.area = 0\par
+        self.name = ""\par
+        \par
+    def showArea(self):\par
+        print("The area of the", self.name, "is", self.area, "units")\par
+        \par
+class Circle(Shape):\par
+    def __init__(self,radius):\par
+        self.area = 0\par
+        self.name = "Circle"\par
+        self.radius = radius\par
+        \par
+    def calcArea(self):\par
+        self.area = math.pi * self.radius * self.radius\par
+    \par
+class Rectangle(Shape):\par
+    def __init__(self,length,breadth):\par
+        self.area = 0\par
+        self.name = "Rectangle"\par
+        self.length = length\par
+        self.breadth = breadth\par
+        \par
+    def calcArea(self):\par
+        self.area = self.length * self.breadth\par
+\par
+class Triangle(Shape):\par
+    def __init__(self,base,height):\par
+        self.area = 0\par
+        self.name = "Triangle"\par
+        self.base = base\par
+        self.height = height\par
+        \par
+    def calcArea(self):\par
+        self.area = self.base * self.height / 2\par
+    \par
+\par
+    \par
+c1 = Circle(5)\par
+c1.calcArea()\par
+c1.showArea()\par
+\par
+\par
+r1 = Rectangle(5, 4)\par
+r1.calcArea()\par
+r1.showArea()\par
+\par
+\par
+t1 = Triangle(3, 4)\par
+t1.calcArea()\par
+t1.showArea()\par
+\b\fs28 Output\b0\fs22\par
+The area of the Circle is 78.53981633974483 units\par
+The area of the Rectangle is 20 units\par
+The area of the Triangle is 6.0 units\par
+\b\fs28 b.Employee Details\b0\fs22\par
+Write a python program by creating a class called Employee to store the details of Name, Employee_ID, Department and Salary, and implement a method to update salary of employees belonging to a given department.\par
+\par
+class Employee:\par
+    def __init__(self):\par
+        self.name = ""\par
+        self.empId = ""\par
+        self.dept = ""\par
+        self.salary = 0\par
+        \par
+    def getEmpDetails(self):\par
+        self.name = input("Enter Employee name : ")\par
+        self.empId = input("Enter Employee ID : ")\par
+        self.dept = input("Enter Employee Dept : ")\par
+        self.salary = int(input("Enter Employee Salary : "))\par
+        \par
+    def showEmpDetails(self):\par
+        print("Employee Details")\par
+        print("Name : ", self.name)\par
+        print("ID : ", self.empId)\par
+        print("Dept : ", self.dept)\par
+        print("Salary : ", self.salary)\par
+        \par
+    def updtSalary(self):\par
+        self.salary = int(input("Enter new Salary : "))\par
+        print("Updated Salary", self.salary)\par
+        \par
+\par
+e1 = Employee()\par
+e1.getEmpDetails()\par
+e1.showEmpDetails()\par
+e1.updtSalary()\par
+\b\fs28 Output\b0\fs22\par
+Enter Employee name : Sameer\par
+Enter Employee ID : A123\par
+Enter Employee Dept : CSE\par
+Enter Employee Salary : 85750\par
+\par
+Employee Details\par
+Name :  Sameer\par
+ID :  A123\par
+Dept :  CSE\par
+Salary :  85750\par
+\par
+Enter new Salary : 88800\par
+Updated Salary 88800\par
+\par
+\b\fs28 8.Polymorphism and Inheritance\b0\fs22\par
+Write a python program to find the whether the given input is palindrome or not (for both string and integer) using the concept of polymorphism and inheritance.\par
+\par
+class PaliStr:\par
+    def __init__(self):\par
+        self.isPali = False\par
+        \par
+    def chkPalindrome(self, myStr):\par
+        if myStr == myStr[::-1]:\par
+            self.isPali = True\par
+        else:\par
+            self.isPali = False\par
+            \par
+        return self.isPali\par
+            \par
+class PaliInt(PaliStr):\par
+    def __init__(self):\par
+        self.isPali = False\par
+        \par
+    def chkPalindrome(self, val):\par
+        temp = val\par
+        rev = 0\par
+        while temp != 0:\par
+            dig = temp % 10\par
+            rev = (rev*10) + dig\par
+            temp = temp //10\par
+            \par
+        if val == rev:\par
+            self.isPali = True\par
+        else:\par
+            self.isPali = False\par
+        \par
+        return self.isPali\par
+\par
+st = input("Enter a string : ")\par
+\par
+stObj = PaliStr()\par
+if stObj.chkPalindrome(st):\par
+    print("Given string is a Palindrome")\par
+else:\par
+    print("Given string is not a Palindrome")\par
+\par
+val = int(input("Enter a integer : "))    \par
+\par
+intObj = PaliInt()\par
+if intObj.chkPalindrome(val):\par
+    print("Given integer is a Palindrome")\par
+else:\par
+    print("Given integer is not a Palindrome")\par
+\b\fs28 Output\b0\fs22\par
+Enter a string : madam\par
+Given string is a Palindrome\par
+Enter a integer : 567587\par
+Given integer is not a Palindrome\par
+Enter a string : INDIA\par
+Given string is not a Palindrome\par
+Enter a integer : 6789876\par
+Given integer is a Palindrome\par
+\par
+\b\fs28 9.Download XKCD comics\b0\fs22\par
+Write a python program to download the all XKCD comics\par
+\par
+import requests\par
+import os\par
+from bs4 import BeautifulSoup\par
+url = '{{\field{\*\fldinst{HYPERLINK https://xkcd.com/1/ }}{\fldrslt{https://xkcd.com/1/\ul0\cf0}}}}\f0\fs22 '\par
+if not os.path.exists('xkcd_comics'):\par
+    os.makedirs('xkcd_comics')\par
+while True:\par
+    # Download the page content\par
+    res = requests.get(url)\par
+    res.raise_for_status()\par
+    soup = BeautifulSoup(res.text, 'html.parser')\par
+    comic_elem = soup.select('#comic img')\par
+    if comic_elem == []:\par
+        print('Could not find comic image.')\par
+    else:\par
+        comic_url = 'https:' + comic_elem[0].get('src')\par
+        print(f'Downloading \{comic_url\}...')\par
+        res = requests.get(comic_url)\par
+        res.raise_for_status()\par
+        image_file = open(os.path.join('xkcd_comics', os.path.basename(comic_url)), 'wb')\par
+        for chunk in res.iter_content(100000):\par
+            image_file.write(chunk)\par
+        image_file.close()\par
+    prev_link = soup.select('a[rel="prev"]')[0]\par
+    if not prev_link:\par
+        break\par
+    url = '{{\field{\*\fldinst{HYPERLINK https://xkcd.com }}{\fldrslt{https://xkcd.com\ul0\cf0}}}}\f0\fs22 ' + prev_link.get('href')\par
+\par
+print('All comics downloaded.')\par
+\b\fs28 Output\b0\fs22\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://imgs.xkcd.com/comics/barrel_cropped_(1).jpg }}{\fldrslt{https://imgs.xkcd.com/comics/barrel_cropped_(1).jpg\ul0\cf0}}}}\f0\fs22 ...\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://imgs.xkcd.com/comics/radians_are_cursed.png }}{\fldrslt{https://imgs.xkcd.com/comics/radians_are_cursed.png\ul0\cf0}}}}\f0\fs22 ...\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://imgs.xkcd.com/comics/presents_for_biologists.png }}{\fldrslt{https://imgs.xkcd.com/comics/presents_for_biologists.png\ul0\cf0}}}}\f0\fs22 ...\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://imgs.xkcd.com/comics/launch_window.png }}{\fldrslt{https://imgs.xkcd.com/comics/launch_window.png\ul0\cf0}}}}\f0\fs22 ...\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://imgs.xkcd.com/comics/obituary_editor.png }}{\fldrslt{https://imgs.xkcd.com/comics/obituary_editor.png\ul0\cf0}}}}\f0\fs22 ...\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://imgs.xkcd.com/comics/fanservice.png }}{\fldrslt{https://imgs.xkcd.com/comics/fanservice.png\ul0\cf0}}}}\f0\fs22 ...\par
+Downloading {{\field{\*\fldinst{HYPERLINK https://imgs.xkcd.com/comics/hand_dryers.png }}{\fldrslt{https://imgs.xkcd.com/comics/hand_dryers.png\ul0\cf0}}}}\f0\fs22 ...\par
+\b\fs28 b.Spreadsheet Operations\b0\fs22\par
+Demonstrate python program to read the data from the spreadsheet and write the data in to the spreadsheet\par
+\par
+from openpyxl import Workbook \par
+from openpyxl.styles import Font\par
+\par
+wb = Workbook() \par
+sheet = wb.active\par
+sheet.title = "Language"\par
+wb.create_sheet(title = "Capital")\par
+\par
+lang = ["Kannada", "Telugu", "Tamil"]\par
+state = ["Karnataka", "Telangana", "Tamil Nadu"]\par
+capital = ["Bengaluru", "Hyderabad", "Chennai"]\par
+code =['KA', 'TS', 'TN']\par
+\par
+sheet.cell(row = 1, column = 1).value = "State"\par
+sheet.cell(row = 1, column = 2).value = "Language"\par
+sheet.cell(row = 1, column = 3).value = "Code"\par
+\par
+\par
+ft = Font(bold=True)\par
+for row in sheet["A1:C1"]:\par
+    for cell in row:\par
+        cell.font = ft\par
+        \par
+for i in range(2,5):\par
+    sheet.cell(row = i, column = 1).value = state[i-2]\par
+    sheet.cell(row = i, column = 2).value = lang[i-2]\par
+    sheet.cell(row = i, column = 3).value = code[i-2]\par
+    \par
+wb.save("demo.xlsx")\par
+\par
+\par
+sheet = wb["Capital"]\par
+\par
+sheet.cell(row = 1, column = 1).value = "State"\par
+sheet.cell(row = 1, column = 2).value = "Capital"\par
+sheet.cell(row = 1, column = 3).value = "Code"\par
+\par
+ft = Font(bold=True)\par
+for row in sheet["A1:C1"]:\par
+    for cell in row:\par
+        cell.font = ft\par
+        \par
+for i in range(2,5):\par
+    sheet.cell(row = i, column = 1).value = state[i-2]\par
+    sheet.cell(row = i, column = 2).value = capital[i-2]\par
+    sheet.cell(row = i, column = 3).value = code[i-2]\par
+    \par
+wb.save("demo.xlsx")\par
+\par
+srchCode = input("Enter state code for finding capital ")\par
+for i in range(2,5):\par
+    data = sheet.cell(row = i, column = 3).value\par
+    if data == srchCode:\par
+        print("Corresponding capital for code", srchCode, "is", sheet.cell(row = i, column = 2).value)\par
+        \par
+\par
+sheet = wb["Language"]\par
+\par
+srchCode = input("Enter state code for finding language ")\par
+for i in range(2,5):\par
+    data = sheet.cell(row = i, column = 3).value\par
+    if data == srchCode:\par
+        print("Corresponding language for code", srchCode, "is", sheet.cell(row = i, column = 2).value)\par
+\par
+wb.close()\par
+\b\fs28 Output\b0\fs22\par
+Enter state code for finding capital KA\par
+Corresponding capital for code KA is Bengaluru\par
+Enter state code for finding language TS\par
+Corresponding language for code TS is Telugu\par
+\par
+\b\fs28 10.Merge selected pages from Multiple PDFs to a new PDF\b0\fs22\par
+Write a python program to combine select pages from many PDFs\par
+from PyPDF2 import PdfWriter, PdfReader\par
+\par
+num = int(input("Enter page number you want combine from multiple documents "))\par
+\par
+pdf1 = open('birds.pdf', 'rb')\par
+pdf2 = open('birdspic.pdf', 'rb')\par
+\par
+pdf_writer = PdfWriter()\par
+\par
+pdf1_reader = PdfReader(pdf1)    \par
+page = pdf1_reader.pages[num - 1]\par
+pdf_writer.add_page(page)\par
+\par
+pdf2_reader = PdfReader(pdf2)    \par
+page = pdf2_reader.pages[num - 1]\par
+pdf_writer.add_page(page)\par
+\par
+with open('output.pdf', 'wb') as output:\par
+    pdf_writer.write(output)\par
+\b\fs28 Output\b0\fs22\par
+This program allows you to extract specific pages from two PDF files, \ldblquote birds.pdf\rdblquote  and \ldblquote birdspic.pdf,\rdblquote  by entering the page numbers as user input. Once you input the desired page numbers, the program fetches those pages from both PDF files and combines them into a new file called \ldblquote output.pdf.\rdblquote  This way, you can easily compile the desired pages from multiple PDF files into one document for your convenience.\par
+\par
+Enter page number you want combine from multiple documents 3\par
+birdsDownload\par
+birdspicDownload\par
+outputDownload\par
+\b\fs28 b.Fetch weather data from the JSON\b0\fs22\par
+Write a python program to fetch current weather data from the JSON file\par
+import json\par
+\par
+with open('weather_data.json') as f:\par
+    data = json.load(f)\par
+current_temp = data['main']['temp']\par
+humidity = data['main']['humidity']\par
+weather_desc = data['weather'][0]['description']\par
+print(f"Current temperature: \{current_temp\}\'b0C")\par
+print(f"Humidity: \{humidity\}%")\par
+print(f"Weather description: \{weather_desc\}")\par
+\b JSON File \b0 :\par
+\{\par
+  "coord": \{\par
+    "lon": -73.99,\par
+    "lat": 40.73\par
+  \},\par
+  "weather": [\par
+    \{\par
+      "id": 800,\par
+      "main": "Clear",\par
+      "description": "clear sky",\par
+      "icon": "01d"\par
+    \}\par
+  ],\par
+  "base": "stations",\par
+  "main": \{\par
+    "temp": 15.45,\par
+    "feels_like": 12.74,\par
+    "temp_min": 14.44,\par
+    "temp_max": 16.11,\par
+    "pressure": 1017,\par
+    "humidity": 64\par
+  \},\par
+  "visibility": 10000,\par
+  "wind": \{\par
+    "speed": 4.63,\par
+    "deg": 180\par
+  \},\par
+  "clouds": \{\par
+    "all": 1\par
+  \},\par
+  "dt": 1617979985,\par
+  "sys": \{\par
+    "type": 1,\par
+    "id": 5141,\par
+    "country": "US",\par
+    "sunrise": 1617951158,\par
+    "sunset": 1618000213\par
+  \},\par
+  "timezone": -14400,\par
+  "id": 5128581,\par
+  "name": "New York",\par
+  "cod": 200\par
+\}\par
+\b\fs28 Output\b0\fs22\par
+Current temperature: 15.45\'b0C\par
+Humidity: 64%\par
+Weather description: clear sky\par
+\par
+\par
+}
+ 
